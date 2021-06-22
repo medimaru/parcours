@@ -1,0 +1,77 @@
+nav {
+  width: 100%;
+  height: 75px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: white !important;
+  z-index: 10;
+}
+
+nav .logo {
+  width: 200px;
+  height: 50px;
+  background-image: url("/assets/noto-logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-left: 10px;
+}
+
+nav .navBtns {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .navBtns input {
+  width: 30%;
+  height: 75px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 17px;
+  -webkit-transition: font-size ease-in-out 0.2s , background ease-in-out 0.2s , color ease-in-out 0.2s;
+  transition: font-size ease-in-out 0.2s , background ease-in-out 0.2s , color ease-in-out 0.2s;
+}
+
+nav .navBtns input:focus, nav .navBtns input:hover {
+  color: white;
+  font-size: 20px;
+  background: #bb1d22c5;
+}
+
+nav .logoutContainer {
+  margin-right: 10px;
+}
+
+nav .logoutContainer input {
+  width: 200px;
+  height: 50px;
+  background-color: #fff;
+  border: solid 1px #4b63cc;
+  font-size: 20px;
+  color: #4b63cc;
+  border-radius: 75px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/*# sourceMappingURL=style.css.map */

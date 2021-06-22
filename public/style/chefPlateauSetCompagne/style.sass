@@ -1,0 +1,181 @@
+*
+    box-sizing: border-box
+    padding: 0
+    margin: 0 auto 0 auto
+    font-family: 'Raleway'
+
+p.compagne
+    color: #444
+    background-color: #929292a2
+    border-radius: 10px
+    cursor: pointer
+    padding: 18px
+    width: 65%
+    margin-top: 2%
+    text-align: center
+    border: none
+    outline: none
+    transition: 0.4s
+    margin-bottom: 10px
+
+p.compagne.active, p.compagne:hover
+    background-color: #929292
+
+p.compagne:after
+    content: '\2795'
+    font-size: 13px
+    color: #777
+    float: right
+    margin-left: 5px
+
+p.compagne.active:after
+    content: '\2796'
+
+.compagneSub
+    padding: 0 18px
+    background-color: white
+    max-height: 0
+    overflow: hidden
+    transition: 0.4s ease-in-out
+    opacity: 0
+    margin-bottom: 10px
+
+.compagneSub.show
+    opacity: 1
+    max-height: 500px; /* Whatever you like, as long as its more than the height of the content (on all screen sizes) */
+
+.content
+    padding-top: 75px
+    padding-bottom: 10px
+    padding-left: 10px
+    padding-right: 10px
+    overflow: hidden
+    width: 50%
+
+.compagneSub
+    border: none
+    max-width: 50%
+
+.confirm
+    margin: 10px auto 10px auto
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0
+    top: 0
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+.close
+    color: #aaa
+    float: right
+    font-size: 28px
+    font-weight: bold
+
+    &:hover,
+
+    &:focus
+        color: black
+        text-decoration: none
+        cursor: pointer
+
+.modal-content
+    background-color: #202020
+    border-radius: 10px
+    margin: 85px auto
+    width: 520px
+    height: 470px
+    padding: 20px 10px 20px 10px
+    color: #FFF
+
+.ModifierBtn
+    font-size: 12px
+    cursor: pointer
+    width: 70px
+    background-color: #9ee6ba
+    padding: 10px 15px
+    margin: 0 0 0 70px
+    border: none
+    border-radius: 5.5px
+    font-weight: bolder
+
+#ModifObjectifForm
+    width: 300px
+    input
+        width: 100%
+        clear: both
+        width: 100%
+        border: 2px solid #aaa
+        border-radius: 4px
+        margin: 8px 0
+        outline: none
+        padding: 3px 0 3px 10px
+        box-sizing: border-box
+        transition: .1s
+
+    input:focus
+        border-color: dodgerBlue
+        box-shadow: 0 0 11px 0 dodgerBlue
+
+.labelText
+    text-align: left
+    border-radius: 10px
+    text-shadow: #004ab1e6 8px 7px 5px
+
+.ValiderBtn
+    font-size: 12px
+    cursor: pointer
+    width: 70px
+    background-color: #9ee6ba
+    padding: 10px 15px
+    margin: 0 0 0 70px
+    border: none
+    border-radius: 5.5px
+    font-weight: bolder
+
+.ResetBtn
+    font-size: 12px
+    cursor: pointer
+    width: 70px
+    background-color: #ffcfcf
+    padding: 10px 15px
+    margin: 0 0 0 30px
+    border: none
+    border-radius: 5.5px
+    font-weight: bolder
+
+.confirmUpdate
+    margin: 10px auto 10px auto
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0
+    top: 0
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+.modal-content-Update
+    background-color: #202020
+    border-radius: 10px
+    margin: 92px auto
+    width: 520px
+    height: 100px
+    padding: 20px 10px 20px 10px
+    color: #FFF
+    text-align: center
+
+.BtnConfirmValider
+    color: green
+    height: 30px
+    width: 30px
+
+.BtnConfirmAnnuler
+    color: red
+    height: 30px
+    width: 30px

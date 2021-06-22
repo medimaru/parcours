@@ -1,0 +1,201 @@
+*
+    box-sizing: border-box
+    padding: 0
+    margin: 0 auto 0 auto
+    font-family: 'Raleway'
+
+body
+    height: 100vh
+    width: 100vw
+table
+    border-collapse: collapse
+    font-size: 14px
+    border: solid 0.5px #bebebe
+    margin-top: 20px
+
+    th
+        box-sizing: content-box
+        font-weight: bold
+        padding: 20px
+        color: rgb(75, 99, 204)
+        border-bottom: solid 0.5px rgba(0, 0, 0, 1)
+        border-top: none
+
+    tr:nth-child(odd)
+        background-color: #ffffff
+
+    td
+        width: fit-content
+        padding: 15px 10px
+        color: #404040
+        font-size: 18px
+.pages
+    margin: 10px auto
+    display: flex
+    padding: 0
+
+    ul
+        margin: 0 auto
+        list-style: none
+        display: flex
+        padding: 0
+
+        li
+            background-color: #fefefe
+            width: 35px
+            height: 35px
+            line-height: 35px
+            border: .5px solid
+            border-color: #5f80f5
+            text-align: center
+            margin: 2px
+            font-family: 'Raleway'
+            font-size: 14px
+            letter-spacing: 2px
+            border-radius: 5px
+            cursor: pointer
+
+.none
+    height: 100%
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+
+    p
+        font-size: 40px
+        font-weight: bold
+        color: rgba(58, 56, 56, 0.322)
+
+main
+    position: fixed
+    top: 60px
+    left: 0
+    right: 0
+    bottom: 0
+    padding-top: 25px
+    overflow: auto
+    p
+        color: #1f1f1fce
+        font-weight: bold
+        font-size: 20px
+    button
+        color: white
+        border: none
+        background-color: rgba(235, 64, 52,1)
+        padding: 5px
+        label
+            color: #353535af
+            width: 40px
+    .Title
+        display: flex
+        justify-content: center
+        flex-direction: column
+        align-items: center
+
+h1
+    color: rgba(0, 0, 0, 0.746)
+    margin: 0 auto 10px auto
+
+.content
+    overflow: show
+
+.hidden
+    display: none !important
+
+.openbtn
+    font-size: 16px
+    cursor: pointer
+    background-color: #353535
+    color: white
+    padding: 10px 15px
+    border: none
+    border-radius: 5.5px
+
+.openbtn:hover
+    background-color: #444
+
+#expand
+    margin: 16px
+    overflow: hidden
+    transition: height 0.5s
+    color: #FFF
+    border-radius: 5px
+    background-color: #f2f2f2
+    text-align: center
+
+.labelText ,#max, #dateDebut, #dateFin, #type,#label
+    color: #000000
+    padding: 8px 8px
+    margin: 8px 0
+    border: 1px solid #ccc
+    border-radius: 4px
+
+.ValiderBtn
+    font-size: 12px
+    cursor: pointer
+    background-color: #353535
+    color: white
+    padding: 10px 15px
+    border: none
+    border-radius: 5.5px
+
+.confirm
+    margin: 10px auto 10px auto
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0
+    top: 0
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+.modal-content
+    background-color: #202020
+    border-radius: 10px
+    margin: 114px auto
+    width: 500px
+    height: 100px
+    padding: 20px 10px 20px 10px
+    color: #FFF
+    text-align: center
+
+.close
+    color: #aaa
+    float: right
+    font-size: 28px
+    font-weight: bold
+
+    &:hover,
+
+    &:focus
+        color: black
+        text-decoration: none
+        cursor: pointer
+
+.BtnConfirmValider
+    color: green
+    height: 30px
+    width: 30px
+
+.BtnConfirmAnnuler
+    color: red
+    height: 30px
+    width: 30px
+
+#search
+    margin: 0 0 10px 0
+    width: 180px
+    height: 45px
+    border-radius: 10px
+
+.deconnection
+        cursor: pointer
+        transition: 0.3s
+
+.deconnection:hover
+    background-color: #6565fe
+    color: #ffffff
