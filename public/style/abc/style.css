@@ -1,0 +1,276 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0 auto 0 auto;
+  font-family: 'Raleway';
+}
+
+.Title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+h1 {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.746);
+  margin-bottom: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 14px;
+  border: solid 0.5px #bebebe;
+  margin-top: 20px;
+}
+
+table th {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  font-weight: bold;
+  padding: 20px;
+  color: #4b63cc;
+  border-bottom: solid 1px black;
+  border-top: none;
+}
+
+table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+table td {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 15px 10px;
+  color: #404040;
+  font-size: 18px;
+  text-align: center;
+}
+
+.content table {
+  max-height: 500px;
+  overflow: auto;
+}
+
+main {
+  position: fixed;
+  top: 75px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 25px;
+  overflow: auto;
+}
+
+#search {
+  width: 150px;
+  height: 25px;
+}
+
+.pages {
+  margin: 10px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+}
+
+.pages ul {
+  margin: 0 auto;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+}
+
+.pages ul li {
+  background-color: #fefefe;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border: .5px solid;
+  border-color: #5f80f5;
+  text-align: center;
+  margin: 2px;
+  font-family: 'Raleway';
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pages p {
+  font-size: 40px;
+  font-weight: bold;
+  color: rgba(58, 56, 56, 0.322);
+}
+
+.A {
+  background-color: #185f0ab7;
+}
+
+.B {
+  background-color: #ebb31ab4;
+}
+
+.C {
+  background-color: #f55d37d8;
+}
+
+#fichier-CSV {
+  display: none;
+}
+
+.custom-fichier-CSV {
+  border-radius: 12px;
+  padding: 18px 12px;
+  cursor: pointer;
+  margin: 15px auto 15px auto;
+  width: 210px;
+  background-color: #3b79929d;
+}
+
+.archiveValidation {
+  margin: 10px auto 10px auto;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #353535;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5.5px;
+}
+
+.archiveValidation:hover {
+  background-color: #444;
+}
+
+.ValiderBtn {
+  margin: 0px auto 0px auto;
+  font-size: 12px;
+  cursor: pointer;
+  background-color: #353535;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 7.5px;
+}
+
+#dateDebut {
+  margin: 10px auto 0px auto;
+  padding: 0px 5px;
+}
+
+#expand {
+  margin: 10px auto 10px auto;
+  overflow: hidden;
+  -webkit-transition: height 0.3s;
+  transition: height 0.3s;
+  color: #FFF;
+  border-radius: 5px;
+  background-color: #6b696978;
+  text-align: center;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+}
+
+.confirm {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #202020;
+  border-radius: 10px;
+  margin: 150px auto;
+  width: 500px;
+  height: 100px;
+  padding: 20px 5px 20px 0;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.BtnConfirmValider {
+  color: green;
+  height: 30px;
+  width: 30px;
+}
+
+.BtnConfirmAnnuler {
+  color: red;
+  height: 30px;
+  width: 30px;
+}
+
+.deconnection {
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.deconnection:hover {
+  background-color: #6565fe;
+  color: #ffffff;
+}
+/*# sourceMappingURL=style.css.map */
