@@ -16,7 +16,7 @@
     <nav>
         <div class="logo"></div>
         <div class="navBtns">
-            <input type="button" value="AgentAPI" class="first" name="Formations" onclick="openBTAgentAPI()">
+            {{-- <input type="button" value="AgentAPI" class="first" name="Formations" onclick="openBTAgentAPI()"> --}}
         </div>
         <div class="logoutContainer">
             <input id="deconnection" class="deconnection" type="button" value="Se deconnecter" onclick="logout()">
@@ -36,8 +36,8 @@
             <div class="modal-content">
                 <span class="close Confirm">&times;</span>
                 <p style="padding-bottom:5px ;">Êtes-vous sûr de vouloir continuer ?</p>
-                <button class="BtnConfirmValider" onclick="updateFormationCandidat()">:heavy_check_mark:</button>
-                <button class="BtnConfirmAnnuler" onclick="closeConfirm()">:heavy_multiplication_x:</button>
+                <button class="BtnConfirmValider" onclick="updateFormationCandidat()">valider</button>
+                <button class="BtnConfirmAnnuler" onclick="closeConfirm()">annuler</button>
             </div>
         </div>
         <div id="validation" class="validation">

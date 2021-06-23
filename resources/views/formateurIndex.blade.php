@@ -19,8 +19,9 @@
     <nav>
         <div class="logo"></div>
         <div class="navBtns">
-            <input type="button" value="Pseudos" class="first" name="Pseudos" onclick="openBTPseudo()">
-            <input type="button" value="Formations" class="first" name="Formations" onclick="openBTformation()">
+            <input type="button" value="validation" class="first" name="Pseudos" onclick="openValidation()">
+            <input type="button" value="formations" class="first" name="Formations" onclick="openFormation()">
+            <input type="button" value="affectation" class="first" name="Formations" onclick="openAffectation()">
             {{-- <input type="button" value="Classement" class="first" name="Classements" onclick="openBTClassement()"> --}}
         </div>
         <div class="logoutContainer">
@@ -40,8 +41,8 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <p style="padding-bottom:5px ; color: white; font-weight: normal;">Êtes-vous sûr ?</p>
-                    <button type="submit" class="BtnConfirmValider" id="BtnConfirmValider" style="background-color: #fefefe; border-radius: 5px; cursor: pointer;">✔</button>
-                    <button class="BtnConfirmAnnuler" id="BtnConfirmAnnuler" style="background-color: #fefefe; border-radius: 5px;cursor: pointer;" onclick="closeConfirm()">✖</button>
+                    <button type="submit" class="BtnConfirmValider" id="BtnConfirmValider" style="background-color: #fefefe; border-radius: 5px; cursor: pointer;">valider</button>
+                    <button class="BtnConfirmAnnuler" id="BtnConfirmAnnuler" style="background-color: #fefefe; border-radius: 5px;cursor: pointer;" onclick="closeConfirm()">annuler</button>
                 </div>
             </div>
             <div class="content">

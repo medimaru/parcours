@@ -1,6 +1,6 @@
 function formationList() {
     $.ajax({
-        url: "/api/getFormation",
+        url: "/api/getformation",
         method: "get",
         data:{langueId:langueID},
         success: function (result) {
@@ -12,6 +12,29 @@ function formationList() {
     });
 }
 formationList();
+function getformations() {
+    $.ajax({
+        url: "/api/getTypeFormation",
+        method: "get",
+        success: function (result) {
+            formationToList(result);
+            console.log(result);
+        },
+    });
+}
+getformations();
+
+function formationToList(formation) {
+    var select = `<select class="formationTypeSelect" style=" font-weight:bold" id="formationTypeSelect">`;
+    formation.forEach((e) => {
+        select =
+            select +
+            `\n<option value="${e.id}" selected="selected">${e.label}</option>`;
+    });
+    select = select + "</select>";
+    // return select
+    document.querySelector(".typeFormation").innerHTML = select;
+}
 
 function closeConfirm() {
     document.getElementById("confirm").style.display = "none";
@@ -22,7 +45,7 @@ $("#addFormationForm").submit(function (e) {
     var dateDebut = document.querySelector("#dateDebut").value;
     var dateFin = document.querySelector("#dateFin").value;
     var max = document.querySelector("#max").value;
-    var type = document.querySelector("#type").value;
+    var type = document.querySelector("#formationTypeSelect").options[document.querySelector("#formationTypeSelect").selectedIndex].value;
     var label = document.querySelector("#label").value;
 
     $.ajax({
@@ -34,7 +57,7 @@ $("#addFormationForm").submit(function (e) {
             DateFin: dateFin,
             Max: max,
             Label: label,
-            FormationType: 1,
+            FormationType: type,
             langueID:langueID
         },
         success: function () {
@@ -44,10 +67,10 @@ $("#addFormationForm").submit(function (e) {
             document.querySelector("#dateDebut").value = "";
             document.querySelector("#dateFin").value = "";
             document.querySelector("#max").value = "";
-            document.querySelector("#type").value = "";
             document.querySelector("#label").value = "";
         },
     });
+    console.log(type);
     closeConfirm();
 });
 

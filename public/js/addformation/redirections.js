@@ -1,8 +1,11 @@
-function openBTPseudo() {
-    window.location.href = window.location.origin + "/formateurPseudos";
+function openHome() {
+    window.location.href = window.location.origin + "/formateur";
 }
-function openBTabsence() {
-    window.location.href = window.location.origin + "/formateurAbsence";
+function openValidation() {
+    window.location.href = window.location.origin + "/formateur/validation";
+}
+function openAffectation() {
+    window.location.href = window.location.origin + "/formateur";
 }
 function logout() {
     window.location.href = "/";

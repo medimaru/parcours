@@ -18,8 +18,9 @@
     <nav>
         <div class="logo"></div>
         <div class="navBtns">
-            <input type="button" value="Pseudos" class="first" name="Pseudos" onclick="openBTPseudo()">
-            <input type="button" value="Absences" class="first" name="Absences" onclick="openBTabsence()">
+            <input type="button" value="acceuil" class="first" name="Pseudos" onclick="openHome()">
+            <input type="button" value="validation" class="first" name="Absences" onclick="openValidation()">
+            <input type="button" value="affectation" class="first" name="Absences" onclick="openAffectation()">
         </div>
         <div class="logoutContainer">
             <input id="deconnection" class="deconnection" type="button" value="Se deconnecter" onclick="logout()">
@@ -45,7 +46,7 @@
                     <label class="labelText">Date Fin </label>
                     <input type="date" name="dateFin" id="dateFin" oninvalid="closeConfirm()" required><br>
                     <label class="labelText">Type </label>
-                    <input type="number" min="1" name="type" id="type" oninvalid="closeConfirm()" placeholder="Type formation ..." required><br>
+                    <div class="typeFormation" id="typeFormation"></div><br>
                     <label class="labelText" palce>Max </label>
                     <input type="number" min="1" name="max" id="max" oninvalid="closeConfirm()" placeholder="Nbr candidats ..." required><br>
                     <button type="button" id="ValiderBtn" class="ValiderBtn">Ajouter</button><button type="reset" id="ResetBtn" class="ResetBtn"> Reset </button>
@@ -53,8 +54,8 @@
                         <div class="modal-content">
                             <span class="close">&times;</span>
                             <p style="padding-bottom:5px ; color: white; font-weight: normal;">Êtes-vous sûr de vouloir continuer ?</p>
-                            <button type="submit" class="BtnConfirmValider" style="background-color: #fefefe; font-weight: bolder;border-radius: 5px; cursor: pointer;">✔</button>
-                            <button class="BtnConfirmAnnuler" style="background-color: #fefefe; font-weight: bolder; border-radius: 5px;cursor: pointer;" onclick="document.getElementById('confirm').style.display='none'">✖</button>
+                            <button type="submit" class="BtnConfirmValider" style="background-color: #fefefe; font-weight: bolder;border-radius: 5px; cursor: pointer;">valider</button>
+                            <button class="BtnConfirmAnnuler" style="background-color: #fefefe; font-weight: bolder; border-radius: 5px;cursor: pointer;" onclick="document.getElementById('confirm').style.display='none'">annuler</button>
                         </div>
                     </div>
                 </form>

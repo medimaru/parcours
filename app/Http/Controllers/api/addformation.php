@@ -8,7 +8,7 @@ use Illuminate\Http\Request\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class formateurAPI extends Controller
+class addformation extends Controller
 {
     public function getFormation(Request $req)
     {
@@ -41,6 +41,15 @@ class formateurAPI extends Controller
                     'langue'=>$req->langueID
                 ]);
             return "Formation successfully added";
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
+    }
+    public function getTypeFormation()
+    {
+        try {
+            $data = DB::select('SELECT id, label from typeformation');
+            return $data;
         } catch (\Throwable $th) {
             return $th->getMessage();
         }

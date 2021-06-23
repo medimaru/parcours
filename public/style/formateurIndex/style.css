@@ -243,13 +243,17 @@ h1 {
 .BtnConfirmValider {
   color: green;
   height: 30px;
-  width: 30px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .BtnConfirmAnnuler {
   color: red;
   height: 30px;
-  width: 30px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 #search {

@@ -17,6 +17,11 @@
 <body>
     <nav>
         <div class="logo"></div>
+        <div class="navBtns">
+            <input type="button" value="acceuil" class="first" name="Pseudos" onclick="openIndex()">
+            <input type="button" value="formations" class="first" name="Formations" onclick="openFormation()">
+            <input type="button" value="affectation" class="first" name="Formations" onclick="openAffectation()">
+        </div>
         <div class="logoutContainer">
             <input id="deconnection" class="deconnection" type="button" value="Se deconnecter" onclick="logout()">
         </div>
@@ -33,8 +38,8 @@
             <div class="modal-content">
                 <span class="close Confirm">&times;</span>
                 <p style="padding-bottom:5px ;">Êtes-vous sûr de vouloir continuer ?</p>
-                <button class="BtnConfirmValider" onclick="UpdateValidationCandidat()">✔</button>
-                <button class="BtnConfirmAnnuler" onclick="closeConfirm()">✖</button>
+                <button class="BtnConfirmValider" onclick="UpdateValidationCandidat()">valider</button>
+                <button class="BtnConfirmAnnuler" onclick="closeConfirm()">annuler</button>
             </div>
         </div>
         <div class="content">

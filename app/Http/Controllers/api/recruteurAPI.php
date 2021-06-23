@@ -51,7 +51,8 @@ class recruteurAPI extends Controller
 
     public function getFormationId(Request $req){
         try {
-            $formation = DB::select('SELECT f.id, dateDebut,dateFin,max,f.label as Flabel,tf.label as formation from formation f , typeFormation tf where f.formationType=tf.id and langue=?', [$req->langueID]);
+            $formation = DB::select('SELECT f.id, dateDebut,dateFin,max,f.label as Flabel,tf.label as formation from formation f , typeFormation tf where f.formationType=tf.id and langue=?
+            and DATEDIFF(f.dateDebut , curdate())>0', [$req->langueID]);
             return [
                 "data" => $formation,
                 "Formation successfully imported"

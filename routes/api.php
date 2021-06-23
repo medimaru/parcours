@@ -27,12 +27,13 @@ Route::get("/UpdateFormationCandidat", 'api\recruteurAPI@UpdateFormationCandidat
 
 //formateur index APIs
 Route::get("/toggle",'api\formateurAPI@toggleAbsent');
-Route::get("/Absent/{id}",'api\formateurAPI@Absent');
+Route::get("/Absent",'api\formateurAPI@Absent');
 Route::get("/getFormation", 'api\formateurAPI@getFormation');
 
 //formateur add formation APIS
-Route::get("/getFormation","api\addFormation@getFormation");
-Route::get("/addFormation","api\addFormation@addFormation");
+Route::get("/getformation","api\addformation@getFormation");
+Route::get("/addFormation","api\addformation@addFormation");
+Route::get("/getTypeFormation","api\addformation@getTypeFormation");
 
 //chef de plateau chefPlateauAffectation
 Route::get("/getCandidatVtwo",'api\chefPlateauAffectation@getCandidatVtwo');

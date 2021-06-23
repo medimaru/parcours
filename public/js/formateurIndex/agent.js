@@ -32,8 +32,9 @@ function getAbsenceManuel(idFormation) {
         url: "/api/Absent",
         data:{id:idFormation},
         success: function (result) {
-           
+           console.log(result);
             if (result.etat == 1) {
+
                 currentpage2 = 1;
                 lastIndexOfTable2 = 20;
                 theResult = result.data;
