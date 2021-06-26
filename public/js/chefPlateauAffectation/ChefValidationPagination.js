@@ -38,13 +38,11 @@ function validationPagination(data) {
                 "</td><td>" +
                 data[i].prenom +
                 "</td><td>" +
-                data[i].Formation +
-                "</td><td>" +
                 data[i].Pseudo +
                 "</td><td>" +
                 data[i].telephone +
                 "</td><td>" +
-                data[i].compagne +
+                data[i].Compagne +
                 "</td>";
         } catch (error) {}
     }

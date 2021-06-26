@@ -25,11 +25,20 @@ class chefPlateauAffectation extends Controller
     public function getCandidatVtwo()
     {
         try {
-            $data = DB::select('SELECT c.id,c.nom,c.prenom, v.label as Formation,p.label as Pseudo, c.telephone, c.compagne
-            FROM candidat c,pseudo p,validation v
-            where p.id=c.pseudo
-            and c.validation=v.id
-            and validation = 2');
+            $data = DB::select('SELECT
+                c.id,
+                c.nom,
+                c.prenom,
+                ifNull(p.label,"aucun") as Pseudo,
+                c.telephone,
+                cp.label as Compagne
+            FROM
+                candidat c
+            left join
+                pseudo p on p.id=c.pseudo
+            inner join
+                compagne cp on c.compagne=cp.id
+            where c.validation = 2');
             return [
                 "data" => $data,
                 "Candidats successfully imported"
