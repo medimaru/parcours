@@ -144,4 +144,13 @@ class index extends Controller
             return redirect('/');
         }
     }
+    public function abcCalcule (Request $req){
+        $var = $req->session()->get('emp');
+        if ($req->session()->has('emp') && $var->type == 2) {
+            return view('chefPlateauAbsence',['langue'=>$var->langue]);
+        }
+        else {
+            return redirect('/');
+        }
+    }
 }

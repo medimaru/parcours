@@ -40,3 +40,4 @@ Route::get('/chefPlateau/Compagne','index@chefPlateauSetCompagne');
 Route::get('/chefPlateau/abcFilter','index@chefPlateauAbcFilter');
 Route::get('/chefPlateau/recycle','index@chefPlateauRecycle');
 Route::get('/chefPlateau/absence','index@chefPlateauAbsence');
+Route::get('/chefPlateau/abcCalcule','index@abcCalcule');

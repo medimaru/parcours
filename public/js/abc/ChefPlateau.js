@@ -17,6 +17,27 @@ let dataAbsence = [];
 const input = document.getElementById("fichier-CSV");
 var reader = new FileReader(); 
 
+function getIDs(list){
+    return new Promise((resolve,reject)=>{
+        $.ajax({
+            url: "/api/getIDs",
+            method: "get",
+            data:{
+                pseudo:{data:list}
+            },
+            success: function (result) {
+                // console.log(result);
+                if (result.etat = 1) {
+                    resolve(result.data)
+                } else {
+                    reject(result.msg)
+                }
+            },
+        });
+    })
+}
+
+
 input.addEventListener("change", (event) => {
     if (event.target.value.length === 0) {
         console.log("Pas de fichier selectionner !");
@@ -35,14 +56,42 @@ input.addEventListener("change", (event) => {
                 }
                 result.push(obj); 
             }
-            Result = NewData(fixData(result)); // fixData() => Formatter les donnees // NewDate()=> calcule des Points et classement
-            classementPagination(Result); // affiche les donnees sur tableau
-            openSearch(); // Afficher la bare Rechercher par Agent et classement
-            openValidation(); // Afficher la bare Archiver les donner du tableau
-            searchClassement(); // Excuter le listner de la Fonction Rechercher
+            Result = fixData(result); // fixData() => Formatter les donnees // NewDate()=> calcule des Points et classement
+            // openSearch(); // Afficher la bare Rechercher par Agent et classement
+            // openValidation(); // Afficher la bare Archiver les donner du tableau
+            // searchClassement(); // Excuter le listner de la Fonction Rechercher
+
+            // console.log(fixData(result));
+            getIDs(Result.map(e=>{
+                return (e.Agent).trim().toUpperCase()
+            }))
+            .then(res=>{
+                // console.log(res);
+                Result = res.map(e=>{
+                    var dbData = Result.find(d=>(
+                        (d.Agent).toUpperCase() == (e.pseudo).toUpperCase()
+                    ));
+
+                    return {
+                        ...e,
+                        rdv: dbData.rdv,
+                        Appel: dbData.Appel,
+                    }
+                })
+                theResult = NewData(Result);
+                console.log(theResult);
+                classementPagination(theResult); // affiche les donnees sur tableau
+
+
+            })
+            .catch(error=>{
+                console.log(error);
+            })
         };
     }
 });
+
+
 
 function searchClassement() {
     document.querySelector("#search").addEventListener("input", (e) => {
@@ -60,36 +109,36 @@ function searchClassement() {
     });
 }
 
-function RDVresult(data) {
+function RDVresult(data , coef ,obj) {
     // ! Calcule Coeficient RDV
     // ! Nombre de RDV data
-    if (dataCoef[0].objectifRdv !== 0) {
-        let ResultatRdv = data / dataCoef[0].objectifRdv;
-        let ResultatFinaleRdv = ResultatRdv * dataCoef[0].CoefRdv;
+    if (obj !== 0) {
+        let ResultatRdv = data / obj;
+        let ResultatFinaleRdv = ResultatRdv * coef;
         return ResultatFinaleRdv;
     }
     return 0;
 }
 
-function Appelresult(data, NbrAppels) {
+function Appelresult(data, NbrAppels , coef , obj) {
     // ! Calcule Coeficient Appel
     // ! Nombre de Appel and RDV data
     let TR = data / NbrAppels;
-    if (dataCoef[0].objectifAppel !== 0) {
-        let ResultatAppel = TR / dataCoef[0].objectifAppel;
-        let ResultatFinaleAppel = dataCoef[0].CoefAppel * ResultatAppel;
+    if (obj !== 0) {
+        let ResultatAppel = TR / obj;
+        let ResultatFinaleAppel = coef * ResultatAppel;
         return ResultatFinaleAppel;
     } else return 0;
 }
 
-function Absenceresult(data) {
+function Absenceresult(data , coef , obj) {
     // ! Calcule Coeficient Absence
     // ! Nombre de Absence data
-    if (dataCoef[0].objectifAppel !== 0) {
+    if (obj !== 0) {
         let JourTravailler =
-            ((dataCoef[0].JourPrevue - data) / dataCoef[0].JourPrevue) * 100;
-        let ResultatAbsence = JourTravailler / dataCoef[0].objectifAbsence;
-        let ResultatFinaleAbsence = ResultatAbsence * dataCoef[0].CoefAbsence;
+            ((1 - data) / 1) * 100;
+        let ResultatAbsence = JourTravailler / obj;
+        let ResultatFinaleAbsence = ResultatAbsence * coef;
         return ResultatFinaleAbsence;
     } else return 0;
 }
@@ -97,18 +146,12 @@ function Absenceresult(data) {
 function Finaleresult(RDV, ABS, APP) {
     // Calcule Finale data
     let Somme = RDV + ABS + APP;
-    if (
-        dataCoef[0].CoefRdv !== 0 &&
-        dataCoef[0].CoefAppel !== 0 &&
-        dataCoef[0].CoefAbsence !== 0
-    ) {
         let Point =
             Somme /
             (dataCoef[0].CoefRdv +
                 dataCoef[0].CoefAppel +
                 dataCoef[0].CoefAbsence);
         return Point;
-    } else return 0;
 }
 
 function Classementresult(a) {
@@ -125,13 +168,18 @@ function Classementresult(a) {
 function NewData(data) {
     // ! NewDate()=> calcule des Points et classement
     return data.map((e) => {
-        let RDVFinale = RDVresult(Number(e.rdv));
-        let AppelFinale = Appelresult(Number(e.rdv), Number(e.Appel));
-        let AbsenceFinale = Absenceresult(Number(e.Absence));
+        let RDVFinale = RDVresult(Number(e.rdv ), e.rdvCoef , e.rdvObj);
+        let AppelFinale = Appelresult(Number(e.rdv), Number(e.Appel) , e.appelCoef ,e.appelObj);
+        let AbsenceFinale = Absenceresult(Number(e.Absence) ,e.absenceCoef , e.absenceObj);
         let Point = Finaleresult(RDVFinale, AbsenceFinale, AppelFinale);
         let Classement = Classementresult(Point);
         return {
-            ...e,
+            
+            "id":e.id,
+            "Pseudo": e.pseudo,
+            "RDV":e.rdv,
+            "Appels":e.Appel,
+            "Absence":e.Absence,
             RDVFinale,
             AppelFinale,
             AbsenceFinale,

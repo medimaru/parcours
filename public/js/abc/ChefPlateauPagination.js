@@ -28,11 +28,13 @@ function classementPagination(data) {
         try {
             contentB +=
                 "<tr><td>" +
-                data[i].Agent +
+                data[i].id +
                 "</td><td>" +
-                data[i].rdv +
+                data[i].Pseudo +
                 "</td><td>" +
-                data[i].Appel +
+                data[i].RDV +
+                "</td><td>" +
+                data[i].Appels +
                 "</td><td>" +
                 data[i].Absence +
                 "</td><td>" +

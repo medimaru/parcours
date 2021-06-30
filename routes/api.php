@@ -18,6 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get("/listAbsence", 'api\abc@listAbsence');
+Route::get("/getIDs", 'api\abc@getIDs');
+// Route::get("/testt", 'api\abc@getIDs');
 
 
 //recruteur index
@@ -62,4 +64,5 @@ Route::get("/getTypeFormation", 'api\chefPlateauAbsence@getTypeFormation');
 Route::get("/Absent/{id}",'api\chefPlateauAbsence@Absent');
 Route::get("/toggle",'api\chefPlateauAbsence@toggleAbsent');
 
-
+//chefplateau abc
+// Route::get("/getIDs",'api\chefPlateauAbsence@getIDs');
