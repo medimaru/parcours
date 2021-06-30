@@ -117,4 +117,31 @@ class index extends Controller
             return redirect('/');
         }
     }
+    public function chefPlateauAbcFilter (Request $req){
+        $var = $req->session()->get('emp');
+        if ($req->session()->has('emp') && $var->type == 2) {
+            return view('abcFilter',['langue'=>$var->langue]);
+        }
+        else {
+            return redirect('/');
+        }
+    }
+    public function chefPlateauRecycle (Request $req){
+        $var = $req->session()->get('emp');
+        if ($req->session()->has('emp') && $var->type == 2) {
+            return view('chefPlateauRecycle',['langue'=>$var->langue]);
+        }
+        else {
+            return redirect('/');
+        }
+    }
+    public function chefPlateauAbsence (Request $req){
+        $var = $req->session()->get('emp');
+        if ($req->session()->has('emp') && $var->type == 2) {
+            return view('chefPlateauAbsence',['langue'=>$var->langue]);
+        }
+        else {
+            return redirect('/');
+        }
+    }
 }

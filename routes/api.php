@@ -49,4 +49,17 @@ Route::get("/UpdateValidationCandidat",'api\formateurValidation@UpdateValidation
 Route::get("/getNotes", 'api\chefPlateauCampaign@getNotes');
 Route::get("/UpdateCompagneObjectif", 'api\chefPlateauCampaign@UpdateCompagneObjectif');
 
+//chefPlateau abcFilter
+Route::get("/getClassementDate", 'api\abcFilter@getClassementDate');
+
+//chefplateau recyclage
+Route::get("/UpdateNoRecyclageCandidat", 'api\recyclage@UpdateNoRecyclageCandidat');
+Route::get("/getClassementC", 'api\recyclage@getClassementC');
+Route::get("/UpdateRecyclageCandidat", 'api\recyclage@UpdateRecyclageCandidat');
+
+//chefplateau absence
+Route::get("/getTypeFormation", 'api\chefPlateauAbsence@getTypeFormation');
+Route::get("/Absent/{id}",'api\chefPlateauAbsence@Absent');
+Route::get("/toggle",'api\chefPlateauAbsence@toggleAbsent');
+
 

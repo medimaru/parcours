@@ -37,3 +37,6 @@ Route::get('/formateur/addFormation','index@addFormation');
 Route::get('/formateur/validation','index@formateurValidation');
 Route::get('/chefPlateau/affectation','index@chefPlateauAffectation');
 Route::get('/chefPlateau/Compagne','index@chefPlateauSetCompagne');
+Route::get('/chefPlateau/abcFilter','index@chefPlateauAbcFilter');
+Route::get('/chefPlateau/recycle','index@chefPlateauRecycle');
+Route::get('/chefPlateau/absence','index@chefPlateauAbsence');
