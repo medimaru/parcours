@@ -38,6 +38,18 @@ function classementPagination(data) {
                 "</td><td>" +
                 data[i].Absence +
                 "</td><td>" +
+                data[i].rdvCoef +
+                "</td><td>" +
+                data[i].rdvObj +
+                "</td><td>" +
+                data[i].absenceCoef +
+                "</td><td>" +
+                data[i].absenceObj +
+                "</td><td>" +
+                data[i].appelCoef +
+                "</td><td>" +
+                data[i].appelObj +
+                "</td><td>" +
                 Number(data[i].RDVFinale.toPrecision(4)) +
                 "</td><td>" +
                 Number(data[i].AppelFinale.toPrecision(4)) +

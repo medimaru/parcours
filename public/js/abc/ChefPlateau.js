@@ -13,11 +13,13 @@ let dataCoef = [
 ];
 let Result; // stocker les donnees du tableaux csv Recuperer
 let dataAbsence = [];
+let AJAXdata =[];
 
 const input = document.getElementById("fichier-CSV");
 var reader = new FileReader(); 
 
 function getIDs(list){
+    console.log(list);
     return new Promise((resolve,reject)=>{
         $.ajax({
             url: "/api/getIDs",
@@ -26,7 +28,7 @@ function getIDs(list){
                 pseudo:{data:list}
             },
             success: function (result) {
-                // console.log(result);
+                console.log(result);
                 if (result.etat = 1) {
                     resolve(result.data)
                 } else {
@@ -62,11 +64,12 @@ input.addEventListener("change", (event) => {
             // searchClassement(); // Excuter le listner de la Fonction Rechercher
 
             // console.log(fixData(result));
-            getIDs(Result.map(e=>{
-                return (e.Agent).trim().toUpperCase()
-            }))
+            var pseudoList =Result.map(e=>{
+                return (e.Agent).trim()
+            })
+            getIDs(pseudoList)
             .then(res=>{
-                // console.log(res);
+                AJAXdata = res;
                 Result = res.map(e=>{
                     var dbData = Result.find(d=>(
                         (d.Agent).toUpperCase() == (e.pseudo).toUpperCase()
@@ -180,6 +183,12 @@ function NewData(data) {
             "RDV":e.rdv,
             "Appels":e.Appel,
             "Absence":e.Absence,
+            rdvCoef:e.rdvCoef,
+            rdvObj:e.rdvObj,
+            absenceCoef:e.absenceCoef,
+            absenceObj:e.absenceObj,
+            appelCoef:e.appelCoef,
+            appelObj:e.appelObj,
             RDVFinale,
             AppelFinale,
             AbsenceFinale,
@@ -239,17 +248,50 @@ function archiveData() {
     openArchiveForm(); 
 }
 
-var confirm = document.getElementById("confirm");
-var btn = document.getElementById("ValiderBtn");
-var span = document.getElementsByClassName("close")[0];
-btn.onclick = function() {
-  confirm.style.display = "block";
-}
-span.onclick = function() {
-  confirm.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == confirm) {
-    confirm.style.display = "none";
-  }
-}
+document.querySelector('#backup').addEventListener('click',function(){
+    if (theResult.length == 0) {
+        return;
+    }
+    var dataToSend = theResult.map(e=>{
+        return {
+            idCandidat:e.id,
+            rdv:e.RDV,
+            Appel:e.Appels,
+            Absence:e.Absence,
+            RDVFinale:e.RDVFinale,
+            AppelFinale:e.AppelFinale,
+            AbsenceFinale:e.AbsenceFinale,
+            Point:e.Point,
+            Classement:e.Classement,
+            compagne : AJAXdata.find(d=>(d.id == e.id)).compagne
+        }
+    })
+    console.log(dataToSend);
+
+    $.ajax({
+        url: "/api/insertArchieve",
+        method: "get",
+        data:{
+            data:{archieve:dataToSend}
+        },
+        success: function (result) {
+            console.log(result);
+        },
+    });
+
+})
+
+// var confirm = document.getElementById("confirm");
+// var btn = document.getElementById("ValiderBtn");
+// var span = document.getElementsByClassName("close")[0];
+// btn.onclick = function() {
+//   confirm.style.display = "block";
+// }
+// span.onclick = function() {
+//   confirm.style.display = "none";
+// }
+// window.onclick = function(event) {
+//   if (event.target == confirm) {
+//     confirm.style.display = "none";
+//   }
+// }

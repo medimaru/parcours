@@ -35,7 +35,8 @@
                 <i class="fa fa-cloud-upload"></i> Importer les données
             </label>
             <input id="fichier-CSV" type="file" accept=".csv" />
-            <button onclick="openArchiveForm()" id="archiveValidation" class="archiveValidation" style="display:none"> 💾 Archiver </button>
+            <input type="button" value="Sauvegarder" id="backup">
+            {{-- <button onclick="openArchiveForm()" id="archiveValidation" class="archiveValidation" style="display:none"> 💾 Archiver </button>
             <div id="expand" class="expand" style="height: 0px">
                 <input type="date" name="dateDebut" id="dateDebut"><br>
                 <button type="button" class="ValiderBtn" id="ValiderBtn" style="display:flex"> Sauvgarder </button>
@@ -47,7 +48,7 @@
                         <button class="BtnConfirmAnnuler" onclick="document.getElementById('confirm').style.display='none'">✖</button>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <input type=" text" name="" id="search" class="search" placeholder=" Chercher ..." style="display:none" />
         </div>
         <div class="content">
