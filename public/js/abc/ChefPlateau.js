@@ -276,6 +276,11 @@ document.querySelector('#backup').addEventListener('click',function(){
         },
         success: function (result) {
             console.log(result);
+            if (result.etat == 1) {
+                alert("les donnees sont ajoutes !")
+            } else {
+                alert("Erreure d'ajoue !")
+            }
         },
     });
 
