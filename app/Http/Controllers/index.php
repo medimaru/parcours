@@ -90,6 +90,17 @@ class index extends Controller
             return redirect('/');
         }
     }
+    public function pseudo (Request $req){
+        $var = $req->session()->get('emp');
+        if ($req->session()->has('emp') && $var->type == 5) {
+            return view('pseudo',['langue'=>$var->langue]);
+        }
+        else {
+            return redirect('/');
+        }
+    }
+
+
     public function addformation (Request $req){
         $var = $req->session()->get('emp');
         if ($req->session()->has('emp') && $var->type == 5) {

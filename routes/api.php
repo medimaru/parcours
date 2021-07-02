@@ -65,5 +65,7 @@ Route::get("/getTypeFormation", 'api\chefPlateauAbsence@getTypeFormation');
 Route::get("/Absent/{id}",'api\chefPlateauAbsence@Absent');
 Route::get("/toggle",'api\chefPlateauAbsence@toggleAbsent');
 
-//chefplateau abc
-// Route::get("/getIDs",'api\chefPlateauAbsence@getIDs');
+//formateur Pseudo
+
+Route::get("/getPseudos",'api\formateurPseudo@getPseudo');
+
