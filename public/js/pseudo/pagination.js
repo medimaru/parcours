@@ -37,15 +37,11 @@ function pagination(data)
                 "</td><td>" +
                 data[i].prenom +
                 "</td><td>" +
-                data[i].formation +
+                (data[i].sex == 1 ? 'mme':"ms") +
                 "</td><td>" +
-                `<input  type="checkbox" ${
-                    data[i]["absence matin"] ? "checked" : ""
-                }  onclick="ConfirmationPop(${data[i].id},1,this)">` +
+                data[i].pseudo +
                 "</td><td>" +
-                `<input  type="checkbox" ${
-                    data[i]["absence soir"] ? "checked" : ""
-                } onclick="ConfirmationPop(${data[i].id},2,this)">` +
+                data[i].compagne
                 "</td></tr>";
         } catch (error) {
         }

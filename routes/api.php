@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get("/listAbsence", 'api\abc@listAbsence');
 Route::get("/getIDs", 'api\abc@getIDs');
 Route::get("/insertArchieve", 'api\abc@insertArchieve');
+
 // Route::get("/testt", 'api\abc@getIDs');
 
 
@@ -66,6 +67,6 @@ Route::get("/Absent/{id}",'api\chefPlateauAbsence@Absent');
 Route::get("/toggle",'api\chefPlateauAbsence@toggleAbsent');
 
 //formateur Pseudo
-
+Route::get("/pseudo/getCandidat", 'api\formateurPseudo@getCandidat');
 Route::get("/getPseudos",'api\formateurPseudo@getPseudo');
 

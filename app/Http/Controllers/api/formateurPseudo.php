@@ -31,21 +31,76 @@ class formateurPseudo extends Controller
                 array_push($finalUsedPseudos,"\"".$value."\"");
             }
             $finalUsedPseudos = implode(',', $finalUsedPseudos);
-            $pseudos = DB::select("
+            $pseudosMr = DB::select("
             select
+                id,
+                sex,
                 label as pseudo
             from
                 pseudo
             where
-                pseudo.langue = ? and upper(pseudo.label) not in (".$finalUsedPseudos.")", [($req->data['langue'])]);
+                pseudo.langue = ? and pseudo.sex =2 and upper(pseudo.label) not in (".$finalUsedPseudos.")  limit 100", [($req->data['langue'])]);
+            $pseudosMs = DB::select("
+                select
+                    id,
+                    sex,
+                    label as pseudo
+                from
+                    pseudo
+                where
+                    pseudo.langue = ? and pseudo.sex =1 and upper(pseudo.label) not in (".$finalUsedPseudos.") limit 100", [($req->data['langue'])]);
 
-            // return array_merge($intraUsedPseudo ,$usedPseudo);
-            // return ($req->data['langue']);
-            return $pseudos;
+
+            return [
+                'etat'=>1,
+                'data'=>[
+                    'msPseudo'=>$pseudosMs,
+                    'mrPseudo'=>$pseudosMr
+                ]
+            ];
             
 
         } catch (\Throwable $th) {
-            return $th->getMessage();
+            return [
+                'etat'=>0,
+                'data'=>$th->getMessage()
+            ];
+        }
+    }
+
+    public function getCandidat(Request $req){
+        try {
+            $candidate = DB::select('
+            select
+                c.id as id ,
+                c.nom as nom,
+                c.prenom as prenom,
+                c.sex as sex, 
+                ifnull((p.label),"aucun") as pseudo,
+                ifnull((cp.label),"aucun") as compagne
+            from
+                candidat c
+            left join
+                pseudo p on p.id = c.pseudo
+            left join
+                compagne cp on cp.id = c.compagne
+            left JOIN
+            	formationcandidat fc on fc.candidat = c.id
+            LEFT JOIN
+            	formation f on f.id = fc.formation
+            WHERE
+            	c.validation = 1 and curdate() between f.dateDebut and f.dateFin and c.langue = ?
+            ', [$req->langue]);
+
+            return [
+                'etat'=> 1,
+                'data'=> $candidate
+            ];
+        } catch (\Throwable $th) {
+            return [
+                'etat'=> 0,
+                'msg'=> $th->getMessage()
+            ];
         }
     }
 
