@@ -25,6 +25,7 @@ function pagination(data)
     {
         contentH += "<th>"+prop+"</th>";
     }
+    contentH = contentH +"<th>selecter pseudo</th>";
     var contentB = "";
     for(var i = ((currentpage-1)*20) ; i <= lastIndexOfTable ; i++)
     {
@@ -38,10 +39,12 @@ function pagination(data)
                 data[i].prenom +
                 "</td><td>" +
                 (data[i].sex == 1 ? 'mme':"ms") +
-                "</td><td>" +
+                "</td><td data-cID="+data[i].id+">" +
                 data[i].pseudo +
                 "</td><td>" +
-                data[i].compagne
+                data[i].compagne +
+                "</td><td>" +
+                `<select data-sex="${data[i].sex}" onchange="onSelectOption(this , ${data[i].id})">${makeSelect(data[i].sex)}</select>`
                 "</td></tr>";
         } catch (error) {
         }

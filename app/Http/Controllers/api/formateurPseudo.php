@@ -104,4 +104,23 @@ class formateurPseudo extends Controller
         }
     }
 
+    public function affectPseudos(Request $req){
+        try {
+            // return $req->data["pseudos"];
+            foreach ($req->data["pseudos"] as $value) {
+                DB::table('candidat')
+                ->where("id",$value["id"])
+                ->update(["pseudo"=>$value["pseudo"]]);
+            }
+            return[
+                'etat'=>1
+            ];
+        } catch (\Throwable $th) {
+            return[
+                'etat'=>0,
+                'msg'=>$th->getMessage()
+            ];
+        }
+    }
+
 }

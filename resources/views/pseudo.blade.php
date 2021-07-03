@@ -30,9 +30,10 @@
 
     <main class="">
             <div class="content">
+                Chargement des donnees ...
             </div>
             <div class="pages">
-                
+
             </div>
         </div>
     </main>

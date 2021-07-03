@@ -69,4 +69,5 @@ Route::get("/toggle",'api\chefPlateauAbsence@toggleAbsent');
 //formateur Pseudo
 Route::get("/pseudo/getCandidat", 'api\formateurPseudo@getCandidat');
 Route::get("/getPseudos",'api\formateurPseudo@getPseudo');
+Route::get("/affectPseudos",'api\formateurPseudo@affectPseudos');
 
