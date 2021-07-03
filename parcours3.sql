@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2021 at 03:52 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Generation Time: Jul 03, 2021 at 01:37 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,10 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `parcours`
+-- Database: `parcours3`
 --
-CREATE DATABASE IF NOT EXISTS `parcours` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `parcours`;
 
 -- --------------------------------------------------------
 
@@ -36,13 +34,6 @@ CREATE TABLE `absence` (
   `dateAbsence` date DEFAULT NULL,
   `type` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `absence`
---
-
-INSERT INTO `absence` (`id`, `candidat`, `formation`, `dateAbsence`, `type`) VALUES
-(66, 22, 1, '2021-06-23', 1);
 
 -- --------------------------------------------------------
 
@@ -60,10 +51,10 @@ CREATE TABLE `archiveclassement` (
   `AbsenceFinale` float NOT NULL,
   `Point` text NOT NULL,
   `Classement` varchar(50) NOT NULL,
-  `Date` date NOT NULL,
+  `Date` date NOT NULL DEFAULT current_timestamp(),
   `compagne` int(11) DEFAULT NULL,
   `idCandidat` int(11) DEFAULT NULL,
-  `NbrJours` int(11) NOT NULL
+  `NbrJours` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -71,17 +62,8 @@ CREATE TABLE `archiveclassement` (
 --
 
 INSERT INTO `archiveclassement` (`id`, `rdv`, `Appel`, `Absence`, `RDVFinale`, `AppelFinale`, `AbsenceFinale`, `Point`, `Classement`, `Date`, `compagne`, `idCandidat`, `NbrJours`) VALUES
-(57, 0, 853, 1, 0, 0, 20.4545, '0.20454545454545', 'C', '2021-06-01', NULL, 21, 10),
-(58, 1, 860, 2, 13.3333, 29.9248, 15.9091, '0.59167184844339', 'C', '2021-06-01', NULL, 28, 3),
-(59, 1, 624, 0, 13.3333, 41.2425, 25, '0.79575791855204', 'B', '2021-06-01', NULL, 27, 5),
-(60, 2, 670, 2, 26.6667, 76.8218, 15.9091, '1.1939753106127', 'A', '2021-06-01', NULL, 24, 7),
-(61, 2, 501, 0, 26.6667, 102.736, 25, '1.5440237172713', 'C', '2021-06-01', NULL, 32, 9),
-(62, 1, 574, 0, 13.3333, 44.835, 25, '0.83168340506934', 'B', '2021-06-01', NULL, 26, 1),
-(63, 2, 421, 0, 26.6667, 122.258, 25, '1.7392459596665', 'A', '2021-06-01', NULL, 30, 3),
-(64, 4, 363, 3, 53.3333, 283.585, 11.3636, '3.4828147788041', 'A', '2021-06-01', NULL, 31, 6),
-(73, 0, 853, 1, 0, 0, 20.4545, '0.65454545454545', 'B', '2021-06-06', NULL, 21, 5),
-(74, 0, 853, 1, 0, 0, 20.4545, '2.20454545454545', 'A', '2021-06-05', NULL, 21, 10),
-(75, 0, 853, 1, 0, 0, 20.4545, '1.65454545454545', 'A', '2021-06-07', NULL, 21, 5);
+(81, 0, 853, 0, 0, 0, 183824, '1838.235294117647', 'A', '2021-07-01', 1, 21, NULL),
+(82, 2, 670, 0, 5147.06, 0.000104478, 183824, '1889.705883397717', 'A', '2021-07-01', 1, 33, NULL);
 
 -- --------------------------------------------------------
 
@@ -112,18 +94,8 @@ CREATE TABLE `candidat` (
 --
 
 INSERT INTO `candidat` (`id`, `nom`, `prenom`, `experience`, `pseudo`, `validation`, `telephone`, `CIN`, `nationalite`, `email`, `adresse`, `compagne`, `langue`, `sex`, `etatCandidat`) VALUES
-(21, 'Angel', 'fdf', '2', 1, 2, '766650063', 'F427975', 'CV', 'YOUNESSDERFOUFI41@GMAIL.COM', '0regrger', 2, 2, NULL, NULL),
-(22, 'Assia', 'test', '0', 38, 2, '641380904', 'F577620', '0', 'ACHOUAKBENTAHAR@GMAIL.COM', '0', 2, 2, NULL, NULL),
-(23, 'MOULESHOUL', 'ICHRAK', '0', NULL, 2, '770020667', 'FB96524', '0', 'ICHRAK.MOULESHOUL@GMAIL.COM', '0', 1, 2, NULL, NULL),
-(24, 'MAHDAD', 'YASSINE', '0', 38, 2, '659605042', 'F582952', '0', 'MAHDADYASSINE@OUTLOOK.FR', '0', 1, 2, NULL, NULL),
-(25, 'ERRAJI', 'SOUHAYLA', '15', 38, 2, '697191374', 'F656306', 'cn', 'SOUERRAJI09@GMAIL.COM', 'abcdefghij', 1, 2, NULL, NULL),
-(26, 'ABDLJALIL', 'ILHAM', '0', 1, 2, '675576471', 'F506367', '0', 'ILHABDEL@OUTLOOK.FR', '0', 1, 2, NULL, NULL),
-(27, 'KHALIL', 'YOUNES', '0', 1, 2, '672832960', 'F566345', '0', 'YOUNESS.KHALIL@LIVE.FR', '0', 1, 2, NULL, NULL),
-(28, 'A', '7', '0', NULL, 0, '766650063', 'F427975', '0', 'YOUNESSDERFOUFI41@GMAIL.COM', '0', 1, 2, NULL, 2),
-(29, 'A', '7', '0', 38, 2, '659295061', 'JC424936', '0', 'TAREKMTR1@GMAIL.COM', '0', 1, 2, NULL, NULL),
-(30, 'FIKRI', 'AMINA', '0', 38, 1, '670703736', 'SA26616', '0', 'AMINAFIKRI1997@GMAIL.COM', '0', 1, 2, NULL, NULL),
-(31, 'HANAFI', 'MOHAMMED', '0', 1, 1, '607571363', 'F433360', '0', 'MEDHANAFI9@GMAIL.COM', '0', NULL, 2, NULL, NULL),
-(32, 'FIKRIiiii', 'hassan', '0', 1, 1, '670703736', 'SA26616', '0', 'AMINAFIKRI1997@GMAIL.COM', '0', 1, 2, NULL, NULL);
+(21, 'Angel', 'fdf', '2', 41, 1, '766650063', 'F427975', 'CV', 'YOUNESSDERFOUFI41@GMAIL.COM', '0regrger', 1, 2, 1, NULL),
+(33, 'aze', 'aze', '2', 39, 1, 'rgfedfvgdfgdf', 'dfgdfgdfg', 'dfgdfgdfg', 'dfgdfgdfg', 'dfgdfgdfgdfg', 1, 2, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -145,7 +117,9 @@ INSERT INTO `causecandidat` (`id`, `message`, `idCandidat`) VALUES
 (7, 'dghgh', 28),
 (8, '6333', 28),
 (9, 'azezae', 28),
-(10, 'azd', 28);
+(10, 'azd', 28),
+(11, 'aze', 27),
+(12, 'szfg', 27);
 
 -- --------------------------------------------------------
 
@@ -238,9 +212,9 @@ CREATE TABLE `formationcandidat` (
 --
 
 INSERT INTO `formationcandidat` (`formation`, `candidat`) VALUES
-(1, 22),
-(1, 24),
+(1, 21),
 (1, 28),
+(1, 33),
 (2, 25),
 (29, 23);
 
@@ -304,11 +278,11 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`id`, `label`, `objectif`, `coef`, `compagne`) VALUES
-(19, 'absence', 0.00136, 3556, 1),
-(20, 'rdv', 0.00136, 35, 1),
-(21, 'appel', 1000, 355, 1),
-(34, 'absence', 1, 35, 2),
-(35, 'rdv', 0.00136, 35, 2),
+(19, 'absence', 0.0136, 25, 1),
+(20, 'rdv', 0.0136, 35, 1),
+(21, 'appel', 1000, 35, 1),
+(34, 'absence', 1, 25, 2),
+(35, 'rdv', 0.0136, 35, 2),
 (36, 'appel', 1000, 35, 2);
 
 -- --------------------------------------------------------
@@ -329,8 +303,12 @@ CREATE TABLE `pseudo` (
 --
 
 INSERT INTO `pseudo` (`id`, `label`, `langue`, `sex`) VALUES
-(1, 'Hyrkul', 2, NULL),
-(38, 'JESSICA', 2, NULL);
+(1, 'angel', 2, 1),
+(38, 'helene', 2, 1),
+(39, 'dfhj', 2, 1),
+(40, 'ulktryuk', 2, 2),
+(41, 'azeaze', 2, 1),
+(42, 'qsdqsd', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -422,9 +400,10 @@ CREATE TABLE `typeuser` (
 
 INSERT INTO `typeuser` (`id`, `label`, `root`) VALUES
 (1, 'rh', '/rh'),
-(2, 'chef de plateau de formation', '/chefPlateuFormation'),
+(2, 'chef de plateau de formation', '/chefPlateau/affectation'),
 (3, 'chef de plateau de production', '/chefPlateauProduction'),
-(4, 'chargee de recrutement', '/recruteur');
+(4, 'chargee de recrutement', '/recruteur'),
+(5, 'formateur', '/formateur');
 
 -- --------------------------------------------------------
 
@@ -447,9 +426,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `pseudo`, `password`, `nom`, `prenom`, `type`, `langue`) VALUES
-(1, 'a', 'a', 'a', 'a', 1, NULL),
-(2, 'b', 'b', 'b', 'b', 2, NULL),
-(3, 'c', 'c', 'c', 'c', 3, NULL),
+(1, 'formateur', 'aze', 'a', 'a', 5, 2),
+(2, 'b', 'b', 'b', 'b', 2, 2),
+(3, 'c', 'c', 'c', 'c', 3, 2),
 (4, 'd', 'd', 'd', 'd', 4, NULL);
 
 -- --------------------------------------------------------
@@ -622,25 +601,25 @@ ALTER TABLE `validation`
 -- AUTO_INCREMENT for table `absence`
 --
 ALTER TABLE `absence`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `archiveclassement`
 --
 ALTER TABLE `archiveclassement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `candidat`
 --
 ALTER TABLE `candidat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `causecandidat`
 --
 ALTER TABLE `causecandidat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `compagne`
@@ -676,7 +655,7 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT for table `pseudo`
 --
 ALTER TABLE `pseudo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `score`
@@ -706,7 +685,7 @@ ALTER TABLE `typeformation`
 -- AUTO_INCREMENT for table `typeuser`
 --
 ALTER TABLE `typeuser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
