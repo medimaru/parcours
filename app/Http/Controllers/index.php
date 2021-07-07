@@ -158,7 +158,7 @@ class index extends Controller
     public function abcCalcule (Request $req){
         $var = $req->session()->get('emp');
         if ($req->session()->has('emp') && $var->type == 2) {
-            return view('chefPlateauAbsence',['langue'=>$var->langue]);
+            return view('abc',['langue'=>$var->langue]);
         }
         else {
             return redirect('/');

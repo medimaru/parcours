@@ -20,13 +20,18 @@ Route::get('/', function()
     // return redirect('index2.php');
     return view('index');
 });
+
+
 Route::get('/abc', function()
 {
-    // session()->forget('ID');
-    // session()->flush();
-    // return redirect('index2.php');
     return view('abc');
 });
+Route::get('/insertPseudos', function()
+{
+    return view('insertPseudos');
+});
+
+
 Route::get('/externalAPI/addCandidat','index@addCandidat');
 
 Route::get('/cnx','index@index');

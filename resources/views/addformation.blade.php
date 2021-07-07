@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/tools/jquery.js"></script>
+    <script type="text/javascript" src="/js/tools/redirect.js"></script>
     <link rel="stylesheet" href="/style/addFormation/style.css">
     <link rel="stylesheet" href="/style/Nav/style.css">
     <title>
@@ -30,7 +31,7 @@
         <div class="Title">
             <h1>Liste des formations</h1>
 
-            <input type="text" name="" id="search" placeholder=" Chercher ...">
+            <input type="text" name="" id="search" placeholder=" Chercher ..." style="display: none">
             <button class="openbtn" id="openbtn" onclick=openForm()>
                 ➕ Ajouter Formation</button>
         </div>

@@ -21,7 +21,9 @@ Route::get("/listAbsence", 'api\abc@listAbsence');
 Route::get("/getIDs", 'api\abc@getIDs');
 Route::get("/insertArchieve", 'api\abc@insertArchieve');
 
-// Route::get("/testt", 'api\abc@getIDs');
+//insert new pseudos
+Route::post("/insertNewPseudos", 'api\importPseudos@import');
+
 
 
 //recruteur index

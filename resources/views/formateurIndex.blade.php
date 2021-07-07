@@ -34,7 +34,7 @@
         </div>
         <div class="Absence sectionAcceuil Title">
             <h1>Les absences journalies des candidats</h1>
-            <input type="text" name="" id="search" placeholder=" Chercher ...">
+            <input type="text" name="" id="search" placeholder=" Chercher ..." style="display:none;">
             <div class="formationList" id="formationList">
             </div>
             <div id="confirm" class="confirm">

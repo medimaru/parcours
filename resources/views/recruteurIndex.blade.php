@@ -25,7 +25,7 @@
     <main class="">
         <div class="Title">
             <h1>Liste des nouveaux candidats</h1>
-            <input type="text" name="" id="search" placeholder=" Chercher ...">
+            <input type="text" name="" id="search" placeholder=" Chercher ..." style="display:none;">
         </div>
         <div class="formationContainer">
             <div class="formationList">

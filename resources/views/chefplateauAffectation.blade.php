@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/tools/jquery.js"></script>
+    <script type="text/javascript" src="/js/tools/redirect.js"></script>
     <link rel="stylesheet" href="/style/chefPlateauAffectation/style.css">
     <link rel="stylesheet" href="/style/Nav/style.css">
     <title>
@@ -18,8 +19,11 @@
     <nav>
         <div class="logo"></div>
         <div class="navBtns">
-            <input type="button" value="Classements" class="first" name="Classements" onclick="openBTclassement()">
-            <input type="button" value="Absences" class="first" name="Absences" onclick="openBTabsences()">
+            <input type="button" value="Absence" class="first" onclick="goToChefPlateauAbsence()">
+            <input type="button" value="Recyclage" class="first"  onclick="goToRecycle()">
+            <input type="button" value="Compagne" class="first" onclick="goToCompagne()">
+            <input type="button" value="ABC player" class="first" onclick="goToAbcCalcule()">
+            <input type="button" value="ABC Archive" class="first" onclick="goToAbcFilter()">
         </div>
         <div class="logoutContainer">
             <input id="deconnection" class="deconnection" type="button" value="Se deconnecter" onclick="logout()">
@@ -28,7 +32,7 @@
     <main class="">
         <div class="Title">
             <h1>Affectation compagne candidats</h1>
-            <input type="text" name="" id="search" placeholder=" Chercher ...">
+            <input type="text" name="" id="search" placeholder=" Chercher ..." style="display:none">
         </div>
         <div class="compagneContainer">
             <div class="compagneList">

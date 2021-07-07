@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/style/Nav/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="/js/tools/jquery.js"></script>
+    <script type="text/javascript" src="/js/tools/redirect.js"></script>
     <title>
         Classement (BD)
     </title>
@@ -20,7 +21,11 @@
     <nav>
         <div class="logo"></div>
         <div class="navBtns">
-​
+            <input type="button" value="Absence" class="first" onclick="goToChefPlateauAbsence()">
+            <input type="button" value="Recyclage" class="first"  onclick="goToRecycle()">
+            <input type="button" value="Compagne" class="first" onclick="goToCompagne()">
+            <input type="button" value="Affectation" class="first" onclick="goToAffectation()">
+            <input type="button" value="ABC Archive" class="first" onclick="goToAbcAffectation()">
         </div>
         <div class="logoutContainer">
             <input id="deconnection" class="deconnection" type="button" value="Se deconnecter" onclick="logout()">
