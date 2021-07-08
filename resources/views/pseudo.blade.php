@@ -19,9 +19,9 @@
     <nav>
         <div class="logo"></div>
         <div class="navBtns">
+            <input type="button" value="Accueil" class="first" name="Accueil" onclick="openAffectation()">
             <input type="button" value="validation" class="first" name="Pseudos" onclick="openValidation()">
             <input type="button" value="formations" class="first" name="Formations" onclick="openFormation()">
-            <input type="button" value="affectation" class="first" name="Formations" onclick="openAffectation()">
         </div>
         <div class="logoutContainer">
             <input id="deconnection" class="deconnection" type="button" value="Se deconnecter" onclick="logout()">
@@ -29,6 +29,9 @@
     </nav>
 
     <main class="">
+        <div>
+            <input type="button" value="Valider"  onclick="UpdateValidation()" style="display: block; margin:auto; padding:10px 20px;">
+        </div>
             <div class="content">
                 Chargement des donnees ...
             </div>

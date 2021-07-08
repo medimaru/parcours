@@ -25,7 +25,7 @@ function formationToList(formation) {
 
 function getAbsence() {
     $.ajax({
-        url: "/api/Absent/1",
+        url: "/api/Absent/2",
         success: function (result) {
             if (result.etat == 1) {
                 currentpage2 = 1;

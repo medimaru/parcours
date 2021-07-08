@@ -72,7 +72,7 @@
     </main>
 </body>
 <script>
-    let langueID = 1;
+    let langueID = {{$langue}};
 </script>
 <script src="/js/addFormation/Formateur.js" sync></script>
 <script src="/js/addFormation/redirections.js" sync></script>

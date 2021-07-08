@@ -31,12 +31,12 @@ class chefPlateauAffectation extends Controller
                 c.prenom,
                 ifNull(p.label,"aucun") as Pseudo,
                 c.telephone,
-                cp.label as Compagne
+                ifNull(cp.label,"aucun") as Compagne
             FROM
                 candidat c
             left join
                 pseudo p on p.id=c.pseudo
-            inner join
+            left join
                 compagne cp on c.compagne=cp.id
             where c.validation = 2');
             return [

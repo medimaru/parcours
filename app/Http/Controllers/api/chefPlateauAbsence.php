@@ -74,8 +74,8 @@ class chefPlateauAbsence extends Controller
                 inner join
                     formation f on f.id = fc.formation
                 where
-                   curdate() between f.dateDebut and f.dateFin and  f.id=? ",
-                [$id]
+                   c.validation = 2",
+                []
             );
             return [
                 'etat' => 1,

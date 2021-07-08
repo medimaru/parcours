@@ -25,7 +25,7 @@
             <input type="button" value="Recyclage" class="first"  onclick="goToRecycle()">
             <input type="button" value="Compagne" class="first" onclick="goToCompagne()">
             <input type="button" value="Affectation" class="first" onclick="goToAffectation()">
-            <input type="button" value="ABC Archive" class="first" onclick="goToAbcAffectation()">
+            <input type="button" value="ABC player" class="first" onclick="goToAbcCalcule()">
         </div>
         <div class="logoutContainer">
             <input id="deconnection" class="deconnection" type="button" value="Se deconnecter" onclick="logout()">
